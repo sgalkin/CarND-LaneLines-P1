@@ -110,18 +110,18 @@ The most important improvement (together with contrast enhancement algorithm) co
 The pipeline uses complex algorithm to convert segments found by Hough transformation into lane lines.
 1. Invoke Hough transformation
 2. Filter out irrelevant segments
-  1. Evaluate segment slope
-  2. Classify segment as belong to left (negative slope) or right lane
-  3. Drop segment if slope doesn't belong to the slope range (slopes of inner and outer edges of the region) of corresponding part of RoI.
+    1. Evaluate segment slope
+    2. Classify segment as belong to left (negative slope) or right lane
+    3. Drop segment if slope doesn't belong to the slope range (slopes of inner and outer edges of the region) of corresponding part of RoI.
   ![alt text][hough_edges]
   ![alt_text][filtered_edges]
 3. For each side
-  1. Calculate mean slope
-  2. Find segment with slope closest to mean value
-  3. Take middle point of the segment
-  4. Find highest (in term of vertical axis) segment
-  5. Evaluate appropriate x-coordinate using point from 3 and slope from 1
-  6. Evaluate lane position on the bottom of image using point from 5 and slope from 1
+    1. Calculate mean slope
+    2. Find segment with slope closest to mean value
+    3. Take middle point of the segment
+    4. Find highest (in term of vertical axis) segment
+    5. Evaluate appropriate x-coordinate using point from 3 and slope from 1
+    6. Evaluate lane position on the bottom of image using point from 5 and slope from 1
 
 ##### Shortcomings
 Straight line sometimes not that good approximation for road lane lines.
